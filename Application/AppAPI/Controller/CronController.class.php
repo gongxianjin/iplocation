@@ -28,9 +28,9 @@ class CronController extends Controller {
                 $jsons=strstr($jsons,'{');
                 $jsons=substr($jsons, 0,-1);
                 $jsons=json_decode($jsons, JSON_FORCE_OBJECT);
-                $dat['city_name']=$jsons["result"]["addressComponent"]["district"];
-                $city=$dat['city_name'];
-                $rows=$tech->data($dat)->where("id=$id")->save();
+                //$dat['city_name']=$jsons["result"]["addressComponent"]["district"];
+                $city=$jsons["result"]["addressComponent"]["district"];
+                //$rows=$tech->data($dat)->where("id=$id")->save();
                 $code=M('c_region1');
                 $where['city_short']=array("like","$city%");
                 $ros=$code->field('region_code')->where($where)->select();
