@@ -10,16 +10,19 @@ class CronController extends Controller {
 
     Public function index(){
         $tech=M("c_region03");
-        $row = $tech->field('id,ip_address')->limit('150,10000')->select();
+        $row = $tech->field('id,ip_address')->limit('150,10000')->select();  
         $count=count($row);
         foreach($row as $value)
           { 
             $id=$value['id'];
-            $ip=$value['ip_address'];
+            //$ip=$value['ip_address'];
+            $ip='182.150.27.185';
                 $json = file_get_contents("http://api.map.baidu.com/location/ip?ip=".$ip."&ak=zuHbnfd8EWGZrcsjH6qsn9feHOIccbV8&coor=bd09ll");
                 $json = json_decode($json, true);
+				print_r($json);die;
                 $data['latitude']=$json["content"]["point"]["y"];
                 $data['longitude']=$json["content"]["point"]["x"];
+				
                 $rows=$tech->data($data)->where("id=$id")->save();
      
                 $latitude=$json["content"]["point"]["y"];;

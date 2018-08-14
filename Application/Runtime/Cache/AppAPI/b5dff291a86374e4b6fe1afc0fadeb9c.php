@@ -1,0 +1,1 @@
+<?php if (!defined('THINK_PATH')) exit();?>这是接口的入口地址，说明环境安装已经正常。

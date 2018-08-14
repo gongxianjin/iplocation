@@ -6,7 +6,7 @@
        'DB_USER' => 'root',
        'DB_PWD' => '',
        'DB_PORT' => 3306,
-       'DB_NAME' => 'ip_query',
+       'DB_NAME' => 'test',
        'DB_CHARSET' => 'utf8', 
      );
 
